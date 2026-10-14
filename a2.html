@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+            background-color: pink;
+            font-family: Arial;
+        }
+
+        .form-box {
+            width: 400px;
+            margin: 50px auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input {
+            width: 95%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+</style>
+<body>
+   <div class="form-box">
+
+    <h2>USER REGISTRATION</h2>
+
+    <form onsubmit="return validateForm()">
+
+        <label>Name:</label>
+        <input type="text" id="name">
+        <div id="nameError" class="error"></div>
+
+        <label>Password:</label>
+        <input type="password" id="password">
+        <div id="passwordError" class="error"></div>
+
+        <label>Email ID:</label>
+        <input type="text" id="email">
+        <div id="emailError" class="error"></div>
+
+        <label>Contact Number:</label>
+        <input type="text" id="contact">
+        <div id="contactError" class="error"></div>
+
+        <br>
+
+        <button type="submit">Register</button>
+
+    </form>
+
+</div>
+ <script>
+
+function validateForm() {
+
+    // Getting values
+    let name = document.getElementById("name").value;
+    let password = document.getElementById("password").value;
+    let email = document.getElementById("email").value;
+    let contact = document.getElementById("contact").value;
+
+    // Regular Expressions
+    let nameRegex = /^[A-Za-z ]+$/;
+    let passwordRegex = /^(?=.[A-Za-z])(?=.\d)(?=.[@$!%?&]).{8,}$/;
+    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let contactRegex = /^[0-9]{10}$/;
+
+    // Clear previous errors
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("passwordError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("contactError").innerHTML = "";
+
+    let valid = true;
+
+    // Name validation
+    if (!nameRegex.test(name)) {
+        document.getElementById("nameError").innerHTML =
+            "Invalid Name. Only alphabets are allowed.";
+        valid = false;
+    }
+
+    // Password validation
+    if (!passwordRegex.test(password)) {
+        document.getElementById("passwordError").innerHTML =
+            "Password must contain 8 characters, a letter, a number and a special character.";
+        valid = false;
+    }
+
+    // Email validation
+    if (!emailRegex.test(email)) {
+        document.getElementById("emailError").innerHTML =
+            "Please enter a valid Email ID.";
+        valid = false;
+    }
+
+    // Contact validation
+    if (!contactRegex.test(contact)) {
+        document.getElementById("contactError").innerHTML =
+            "Contact Number must contain exactly 10 digits.";
+        valid = false;
+    }
+
+    if (valid) {
+        alert("Registration Successful!");
+    }
+
+    return valid;
+}
+
+</script>
+
+</body>
+</html>

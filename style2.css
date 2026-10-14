@@ -1,0 +1,29 @@
+header{
+    background-color: aqua;
+}
+nav{
+    background-color: lightseagreen;
+}
+main{
+    background-color: lime;
+}
+.first{
+    background-color: magenta;
+    align-items:center;
+    text-align:center
+}
+.second{
+    background-color: yellow;
+}
+article{
+    background-color: orange;
+}
+.aside{
+    background-color: red;
+}
+footer{
+    background-color: blue;
+}
+div{
+    background-color: hotpink;
+}

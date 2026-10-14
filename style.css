@@ -1,0 +1,19 @@
+img{
+    width:50%;
+}
+
+@media (max-width:767px) and (min-width:576px){
+
+img{
+    width:75%;
+}
+
+}
+
+@media (max-width:575px){
+
+img{
+    width:100%;
+}
+
+}

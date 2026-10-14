@@ -1,0 +1,19 @@
+.container{
+    display:flex;
+    gap:20px;
+}
+
+.box{
+    flex:1;
+    background:lightgray;
+    padding:40px;
+    text-align:center;
+}
+
+@media (max-width:767px){
+
+.container{
+    flex-direction:column;
+}
+
+}
